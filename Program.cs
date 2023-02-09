@@ -18,4 +18,18 @@
         this.balance = balance;
 
     }
+
+    public String getCardNum() {
+        return cardNum; }
+
+    public int getPin() { return pin;
+    }
+
+    public String getFirstName() { 
+        return firstName; }
+    public String getLastName() { 
+        return lastName; }
+    public double getBalance() { 
+        return balance; }
+
 }
