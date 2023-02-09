@@ -32,4 +32,10 @@
     public double getBalance() { 
         return balance; }
 
+
+    public void setNum(String newNum) { cardNum = newNum }
+    public void setPin(int newPin) { setPin = newPin }
+    public void setFirstName(String newName) { firstName = newName}
+    public void setLastName(String newLast) { lastName = newLast }
+    public void setBalance(double newBalance) { balance = newBalance }
 }
