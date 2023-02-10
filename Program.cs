@@ -70,6 +70,9 @@
                 Console.WriteLine("You are good to go!");
             }
         }
-
+        void balance (CardHolder currentUser)
+        {
+            Console.WriteLine("Current balance: " + currentUser.getBalance());
+        }
     }
 }
