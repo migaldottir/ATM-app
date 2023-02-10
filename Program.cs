@@ -102,5 +102,20 @@
 
             catch { Console.WriteLine("Card not recognized. Please try again.")}
         }
+
+        Console.WriteLine("Please enter your PIN: ");
+        int userPin = 0;
+        while (true)
+        {
+            try
+            {
+                userPin = Int.Parse(Console.ReadLine());
+                //check against db (list of users)
+                if (currentUser,getPin() == userPin) { break; }
+                else { Console.WriteLine("Incorrect PIN. Please try again.")}
+            }
+
+            catch { Console.WriteLine("Incorrect PIN.. Please try again.")}
+        }
     }
 }
