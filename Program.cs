@@ -48,12 +48,28 @@
         }
         void deposit (cardHolder currentUser)
         {
-            Console.WriteLine("How much money would you like to deposit?")
+            Console.WriteLine("How much money would you like to deposit:")
                 double deposit = Double.Parse(Console.ReadLine());
             currentUser.setBalance(deposit);
             Console.WriteLine("Your new balance is: " + currentUser.getBalance());
         }
 
         void withdraw (CardHolder currentUser)
+        {
+            Console.WriteLine("How much money would you like to withdraw:")
+                double withdrawal = Double.Parse(Console.ReadLine());
+            //Check if the user has enough money
+            if (currentUser.getBalance() > withdrawal)
+            { Console.WriteLine("Insufficient balance")
+
+
+            }
+            else
+
+            { currentUser.setBalance(currentUser.getBalance() - withdrawal);
+                Console.WriteLine("You are good to go!");
+            }
+        }
+
     }
 }
