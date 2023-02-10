@@ -38,4 +38,10 @@
     public void setFirstName(String newName) { firstName = newName}
     public void setLastName(String newLast) { lastName = newLast }
     public void setBalance(double newBalance) { balance = newBalance }
+
+
+
+    public static void Main(Sting[] args)
+    { 
+    }
 }
