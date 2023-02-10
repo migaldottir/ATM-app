@@ -74,5 +74,48 @@
         {
             Console.WriteLine("Current balance: " + currentUser.getBalance());
         }
+
+        List <CardHolder> cardHolders= new List<CardHolder>();
+        cardHolders.Add(new cardHolder("1212121212121212", 1234, "John", "Griffith", 150.21));
+        cardHolders.Add(new cardHolder("2323232323232323", 1111, "Ashley", "Jones", 321.13));
+        cardHolders.Add(new cardHolder("3131313131313131", 2222, "Frida", "Dickerson", 105.59));
+        cardHolders.Add(new cardHolder("1414141414141414", 3333, "Muneeb", "Harding", 851.84));
+        cardHolders.Add(new cardHolder("3434343434343434", 4444, "Dawn", "Smith", 54.27));
+
+        //Prompt user
+
+        Console.WriteLine("Welcome to SimpleATM!");
+        Console.WriteLine("Please insert your debit card: ");
+        String debitCardNum = " ";
+        CardHolder currentUser;
+
+        while(true)
+        {
+            try
+            {
+                debitCardNum = Console.ReadLine();
+                //check against db (list of users)
+                currentUser = cardHolders.FirstOrDefault(a => a.cardNum == debitCardNum);
+                if (currentUser != null) { break; }
+                else { Console.WriteLine("Card not recognized. Please try again.")}
+            }
+
+            catch { Console.WriteLine("Card not recognized. Please try again.")}
+        }
+
+        Console.WriteLine("Please enter your PIN: ");
+        int userPin = 0;
+        while (true)
+        {
+            try
+            {
+                userPin = Int.Parse(Console.ReadLine());
+                //check against db (list of users)
+                if (currentUser,getPin() == userPin) { break; }
+                else { Console.WriteLine("Incorrect PIN. Please try again.")}
+            }
+
+            catch { Console.WriteLine("Incorrect PIN.. Please try again.")}
+        }
     }
 }
