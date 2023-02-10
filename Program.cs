@@ -1,6 +1,6 @@
-﻿using System
+﻿using System;
 
-    public class CardHolder
+    public class cardHolder
 
 {
     String cardNum;
@@ -9,7 +9,7 @@
     String lastName;
     double balance;
 
-    public CardHolder(String cardNum, int pin, String firstName, String lastName double balance)
+    public cardHolder(String cardNum, int pin, String firstName, String lastName, double balance)
     {
         this.cardNum = cardNum;
         this.pin = pin;
@@ -28,15 +28,15 @@
     public double getBalance() { return balance; }
 
 
-    public void setNum(String newNum) { cardNum = newNum }
-    public void setPin(int newPin) { setPin = newPin }
-    public void setFirstName(String newName) { firstName = newName}
-    public void setLastName(String newLast) { lastName = newLast }
-    public void setBalance(double newBalance) { balance = newBalance }
+    public void setNum(String newNum) { cardNum = newNum; }
+    public void setPin(int newPin) { pin = newPin; }
+    public void setFirstName(String newName) { firstName = newName; }
+    public void setLastName(String newLast) { lastName = newLast; }
+    public void setBalance(double newBalance) { balance = newBalance; }
 
 
 
-    public static void Main(Sting[] args)
+    public static void Main(String[] args)
     { 
         void printOptions()
         {
@@ -48,20 +48,20 @@
         }
         void deposit (cardHolder currentUser)
         {
-            Console.WriteLine("How much money would you like to deposit:")
+            Console.WriteLine("How much money would you like to deposit:");
                 double deposit = Double.Parse(Console.ReadLine());
-            currentUser.setBalance(deposit);
+            currentUser.setBalance(currentUser.getBalance() + deposit);
             Console.WriteLine("Your new balance is: " + currentUser.getBalance());
         }
 
-        void withdraw (CardHolder currentUser)
+        void withdraw (cardHolder currentUser)
         {
-            Console.WriteLine("How much money would you like to withdraw:")
+            Console.WriteLine("How much money would you like to withdraw:");
                 double withdrawal = Double.Parse(Console.ReadLine());
             //Check if the user has enough money
-            if (currentUser.getBalance() > withdrawal)
-            { Console.WriteLine("Insufficient balance")
-
+            if (currentUser.getBalance() < withdrawal)
+            {
+                Console.WriteLine("Insufficient balance");
 
             }
             else
@@ -70,12 +70,12 @@
                 Console.WriteLine("You are good to go!");
             }
         }
-        void balance (CardHolder currentUser)
+        void balance (cardHolder currentUser)
         {
             Console.WriteLine("Current balance: " + currentUser.getBalance());
         }
 
-        List <CardHolder> cardHolders= new List<CardHolder>();
+        List <cardHolder> cardHolders= new List<cardHolder>();
         cardHolders.Add(new cardHolder("1212121212121212", 1234, "John", "Griffith", 150.21));
         cardHolders.Add(new cardHolder("2323232323232323", 1111, "Ashley", "Jones", 321.13));
         cardHolders.Add(new cardHolder("3131313131313131", 2222, "Frida", "Dickerson", 105.59));
@@ -87,7 +87,7 @@
         Console.WriteLine("Welcome to SimpleATM!");
         Console.WriteLine("Please insert your debit card: ");
         String debitCardNum = " ";
-        CardHolder currentUser;
+        cardHolder currentUser;
 
         while(true)
         {
@@ -97,10 +97,10 @@
                 //check against db (list of users)
                 currentUser = cardHolders.FirstOrDefault(a => a.cardNum == debitCardNum);
                 if (currentUser != null) { break; }
-                else { Console.WriteLine("Card not recognized. Please try again.")}
+                else { Console.WriteLine("Card not recognized. Please try again.");  }
             }
 
-            catch { Console.WriteLine("Card not recognized. Please try again.")}
+            catch { Console.WriteLine("Card not recognized. Please try again.");  }
         }
 
         Console.WriteLine("Please enter your PIN: ");
@@ -109,13 +109,17 @@
         {
             try
             {
-                userPin = Int.Parse(Console.ReadLine());
+                userPin = int.Parse(Console.ReadLine());
                 //check against db (list of users)
-                if (currentUser,getPin() == userPin) { break; }
-                else { Console.WriteLine("Incorrect PIN. Please try again.")}
+                if (currentUser.getPin() == userPin) { break; }
+                else
+                {
+                    Console.WriteLine("Incorrect PIN. Please try again.");
+                }
             }
 
-            catch { Console.WriteLine("Incorrect PIN.. Please try again.")}
+
+            catch { Console.WriteLine("Incorrect PIN. Please try again."); }
         }
 
         Console.WriteLine("Welcome " + currentUser.getFirstName() + "! ");
@@ -136,6 +140,6 @@
 
         }
         while (option != 4);
-        ConsoleWriteLine("Thank you. Have a nice day!");
+        Console.WriteLine("Thank you. Have a nice day!");
     }
 }
