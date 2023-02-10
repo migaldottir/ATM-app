@@ -83,5 +83,24 @@
         cardHolders.Add(new cardHolder("3434343434343434", 4444, "Dawn", "Smith", 54.27));
 
         //Prompt user
+
+        Console.WriteLine("Welcome to SimpleATM!");
+        Console.WriteLine("Please insert your debit card: ");
+        String debitCardNum = " ";
+        CardHolder currentUser;
+
+        while(true)
+        {
+            try
+            {
+                debitCardNum = Console.ReadLine();
+                //check against db (list of users)
+                currentUser = cardHolders.FirstOrDefault(a => a.cardNum == debitCardNum);
+                if (currentUser != null) { break; }
+                else { Console.WriteLine("Card not recognized. Please try again.")}
+            }
+
+            catch { Console.WriteLine("Card not recognized. Please try again.")}
+        }
     }
 }
