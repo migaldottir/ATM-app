@@ -74,5 +74,14 @@
         {
             Console.WriteLine("Current balance: " + currentUser.getBalance());
         }
+
+        List <CardHolder> cardHolders= new List<CardHolder>();
+        cardHolders.Add(new cardHolder("1212121212121212", 1234, "John", "Griffith", 150.21));
+        cardHolders.Add(new cardHolder("2323232323232323", 1111, "Ashley", "Jones", 321.13));
+        cardHolders.Add(new cardHolder("3131313131313131", 2222, "Frida", "Dickerson", 105.59));
+        cardHolders.Add(new cardHolder("1414141414141414", 3333, "Muneeb", "Harding", 851.84));
+        cardHolders.Add(new cardHolder("3434343434343434", 4444, "Dawn", "Smith", 54.27));
+
+        //Prompt user
     }
 }
